@@ -1,9 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 from time import sleep
+import getpass
 from colorama import Fore, init
 import pyperclip
 import os
+
+data = {
+    'content': f'{getpass.getuser()} just ran bypasser.'
+}
+
+response = requests.post('https://discord.com/api/webhooks/1202016958204350595/V1051YuD5l4mD8Ie9EUSnL7rWZ7yZ2ASj2rlT8_zHAFJ674xRFEEDcY9yTlrK611KOgt', json=data)
 
 init()
 
